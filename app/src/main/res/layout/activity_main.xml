@@ -10,6 +10,7 @@
 
     <TextView
         android:id="@+id/textTitulo"
+        android:background="@color/verde"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
