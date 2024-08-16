@@ -61,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
         dadosOutroUsuario += " Telefone de Contato: ";
         dadosOutroUsuario += outroUsuario.getTelefoneContato();
 
-        int parada = 0;
 
 
 

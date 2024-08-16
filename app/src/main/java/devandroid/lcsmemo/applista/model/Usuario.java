@@ -42,5 +42,16 @@ public class Usuario {
         this.telefoneContato = telefoneContato;
     }
 
-    public Usuario(){}
+    //To String - Para Texto
+
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "primeiroNome='" + primeiroNome + '\'' +
+                ", sobreNome='" + sobreNome + '\'' +
+                ", cursoDesejado='" + cursoDesejado + '\'' +
+                ", telefoneContato='" + telefoneContato + '\'' +
+                '}';
+    }
 }
