@@ -14,6 +14,11 @@ import devandroid.lcsmemo.applista.model.Usuario;
 public class MainActivity extends AppCompatActivity {
 
     Usuario usuario;
+    Usuario outroUsuario;
+
+    String dadosUsuario;
+    String dadosOutroUsuario;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +30,41 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        usuario = new Usuario();
 
-    usuario = new Usuario();
+        usuario.setPrimeiroNome("Lucas");
+        usuario.setSobreNome("Moura");
+        usuario.setCursoDesejado("Android");
+        usuario.setTelefoneContato("(11) 99999-9999");
+
+        outroUsuario = new Usuario();
+        outroUsuario.setPrimeiroNome("Marcos");
+        outroUsuario.setSobreNome("Leandro");
+        outroUsuario.setCursoDesejado("Java");
+        outroUsuario.setTelefoneContato("(11) 99999-9992");
+
+        dadosUsuario = "Primeiro Nome: ";
+        dadosUsuario += usuario.getPrimeiroNome();
+        dadosUsuario += " Sobrenome: ";
+        dadosUsuario += usuario.getSobreNome();
+        dadosUsuario += " Curso Desejado: ";
+        dadosUsuario += usuario.getCursoDesejado();
+        dadosUsuario += " Telefone de Contato: ";
+        dadosUsuario += usuario.getTelefoneContato();
+
+        dadosOutroUsuario = "Primeiro Nome: ";
+        dadosOutroUsuario += outroUsuario.getPrimeiroNome();
+        dadosOutroUsuario += " Sobrenome: ";
+        dadosOutroUsuario += outroUsuario.getSobreNome();
+        dadosOutroUsuario += " Curso Desejado: ";
+        dadosOutroUsuario += outroUsuario.getCursoDesejado();
+        dadosOutroUsuario += " Telefone de Contato: ";
+        dadosOutroUsuario += outroUsuario.getTelefoneContato();
+
+        int parada = 0;
+
+
+
     }
+
 }
