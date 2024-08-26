@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             editTelefoneDeContato.setText("");
             Toast.makeText(MainActivity.this, "Limpando", Toast.LENGTH_SHORT).show();
         }
-    });
+    }); // Não apaga os dados, apenas Limpa da tela
 
 
 
