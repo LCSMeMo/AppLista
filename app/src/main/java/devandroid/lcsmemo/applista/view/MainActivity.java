@@ -1,6 +1,7 @@
 package devandroid.lcsmemo.applista.view;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,24 +44,15 @@ public class MainActivity extends AppCompatActivity {
         outroUsuario.setCursoDesejado("Java");
         outroUsuario.setTelefoneContato("(11) 99999-9992");
 
-        dadosUsuario = "Primeiro Nome: ";
-        dadosUsuario += usuario.getPrimeiroNome();
-        dadosUsuario += " Sobrenome: ";
-        dadosUsuario += usuario.getSobreNome();
-        dadosUsuario += " Curso Desejado: ";
-        dadosUsuario += usuario.getCursoDesejado();
-        dadosUsuario += " Telefone de Contato: ";
-        dadosUsuario += usuario.getTelefoneContato();
+//        dadosUsuario = "Primeiro Nome: "+usuario.getPrimeiroNome()+" Sobrenome: "+usuario.getSobreNome()+
+//                " Curso Desejado: "+usuario.getCursoDesejado()+" Telefone de Contato: "+usuario.getTelefoneContato();
+//
+//        dadosOutroUsuario = "Primeiro Nome: "+outroUsuario.getPrimeiroNome()+" Sobrenome: "+outroUsuario.getSobreNome()+
+//                " Curso Desejado: "+outroUsuario.getCursoDesejado()+" Telefone de Contato: "+outroUsuario.getTelefoneContato();
 
-        dadosOutroUsuario = "Primeiro Nome: ";
-        dadosOutroUsuario += outroUsuario.getPrimeiroNome();
-        dadosOutroUsuario += " Sobrenome: ";
-        dadosOutroUsuario += outroUsuario.getSobreNome();
-        dadosOutroUsuario += " Curso Desejado: ";
-        dadosOutroUsuario += outroUsuario.getCursoDesejado();
-        dadosOutroUsuario += " Telefone de Contato: ";
-        dadosOutroUsuario += outroUsuario.getTelefoneContato();
 
+        Log.i("POO ANDROID",usuario.toString());
+        Log.i("POO ANDROID",outroUsuario.toString());
 
 
 
