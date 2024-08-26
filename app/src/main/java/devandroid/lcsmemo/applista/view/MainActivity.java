@@ -2,6 +2,10 @@ package devandroid.lcsmemo.applista.view;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,10 +19,8 @@ import devandroid.lcsmemo.applista.model.Usuario;
 public class MainActivity extends AppCompatActivity {
 
     Usuario usuario;
-    Usuario outroUsuario;
-
-    String dadosUsuario;
-    String dadosOutroUsuario;
+    EditText editPrimeiroNome, editSobrenome, editNomeDoCurso, editTelefoneDeContato;
+    Button btnSalvar, btnLimpar, btnFinalizar;
 
 
     @Override
@@ -33,26 +35,48 @@ public class MainActivity extends AppCompatActivity {
         });
         usuario = new Usuario();
 
-        usuario.setPrimeiroNome("Lucas");
-        usuario.setSobreNome("Moura");
-        usuario.setCursoDesejado("Android");
-        usuario.setTelefoneContato("(11) 99999-9999");
+        editPrimeiroNome = findViewById(R.id.editPrimeiroNome);
+        editSobrenome = findViewById(R.id.editSobrenome);
+        editNomeDoCurso = findViewById(R.id.editNomeDoCurso);
+        editTelefoneDeContato = findViewById(R.id.editTelefoneDeContato);
 
-        outroUsuario = new Usuario();
-        outroUsuario.setPrimeiroNome("Marcos");
-        outroUsuario.setSobreNome("Leandro");
-        outroUsuario.setCursoDesejado("Java");
-        outroUsuario.setTelefoneContato("(11) 99999-9992");
+        btnLimpar = findViewById(R.id.btnLimpar);
+        btnSalvar = findViewById(R.id.btnSalvar);
+        btnFinalizar = findViewById(R.id.btnFinalizar);
 
-//        dadosUsuario = "Primeiro Nome: "+usuario.getPrimeiroNome()+" Sobrenome: "+usuario.getSobreNome()+
-//                " Curso Desejado: "+usuario.getCursoDesejado()+" Telefone de Contato: "+usuario.getTelefoneContato();
-//
-//        dadosOutroUsuario = "Primeiro Nome: "+outroUsuario.getPrimeiroNome()+" Sobrenome: "+outroUsuario.getSobreNome()+
-//                " Curso Desejado: "+outroUsuario.getCursoDesejado()+" Telefone de Contato: "+outroUsuario.getTelefoneContato();
+    btnSalvar.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            usuario.setPrimeiroNome(editPrimeiroNome.getText().toString());
+            usuario.setSobreNome(editSobrenome.getText().toString());
+            usuario.setCursoDesejado(editNomeDoCurso.getText().toString());
+            usuario.setTelefoneContato(editTelefoneDeContato.getText().toString());
+            Toast.makeText(MainActivity.this, "Dados Salvos"+usuario.toString(), Toast.LENGTH_SHORT).show();
+        }
+    });
+    btnFinalizar.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Toast.makeText(MainActivity.this, "Finalizando", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+    });
+    btnLimpar.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            editPrimeiroNome.setText("");
+            editSobrenome.setText("");
+            editNomeDoCurso.setText("");
+            editTelefoneDeContato.setText("");
+            Toast.makeText(MainActivity.this, "Limpando", Toast.LENGTH_SHORT).show();
+        }
+    });
+
+
+
 
 
         Log.i("POO ANDROID",usuario.toString());
-        Log.i("POO ANDROID",outroUsuario.toString());
 
 
 
