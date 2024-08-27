@@ -9,10 +9,10 @@
     tools:context=".view.MainActivity">
 
     <TextView android:id="@+id/textAppName"
-        android:background="@color/verde"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:background="@color/verde"
         android:text="@string/text_titulo"
         android:textSize="20sp"
         android:textStyle="bold"
