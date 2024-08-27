@@ -1,5 +1,6 @@
 package devandroid.lcsmemo.applista.view;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +19,9 @@ import devandroid.lcsmemo.applista.controller.UsuarioController;
 import devandroid.lcsmemo.applista.model.Usuario;
 
 public class MainActivity extends AppCompatActivity {
+
+    SharedPreferences preferences;
+    public static final String NOME_PREFERENCES = "pref_AppLista";
     UsuarioController controller;
     Usuario usuario;
     EditText editPrimeiroNome, editSobrenome, editNomeDoCurso, editTelefoneDeContato;
@@ -33,6 +37,11 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+
+        preferences = getSharedPreferences(NOME_PREFERENCES, 0);
+        SharedPreferences.Editor listaVip = preferences.edit();
+
         controller = new UsuarioController();
         usuario = new Usuario();
 
@@ -54,6 +63,12 @@ public class MainActivity extends AppCompatActivity {
                 usuario.setTelefoneContato(editTelefoneDeContato.getText().toString());
                 Toast.makeText(MainActivity.this, "Dados Salvos", Toast.LENGTH_SHORT).show();
 
+                listaVip.putString("Primeiro Nome", usuario.getPrimeiroNome());
+                listaVip.putString("Sobrenome", usuario.getSobreNome());
+                listaVip.putString("Curso", usuario.getCursoDesejado());
+                listaVip.putString("Telefone", usuario.getTelefoneContato());
+                listaVip.apply();
+
                 controller.salvar(usuario);
             }
         });
@@ -72,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
                 editNomeDoCurso.setText("");
                 editTelefoneDeContato.setText("");
                 Toast.makeText(MainActivity.this, "Limpando", Toast.LENGTH_SHORT).show();
+
+
             }
         });
 
