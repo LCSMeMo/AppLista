@@ -14,10 +14,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import devandroid.lcsmemo.applista.R;
+import devandroid.lcsmemo.applista.controller.UsuarioController;
 import devandroid.lcsmemo.applista.model.Usuario;
 
 public class MainActivity extends AppCompatActivity {
-
+    UsuarioController controller;
     Usuario usuario;
     EditText editPrimeiroNome, editSobrenome, editNomeDoCurso, editTelefoneDeContato;
     Button btnSalvar, btnLimpar, btnFinalizar;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        controller = new UsuarioController();
         usuario = new Usuario();
 
         editPrimeiroNome = findViewById(R.id.editPrimeiroNome);
@@ -51,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
                 usuario.setCursoDesejado(editNomeDoCurso.getText().toString());
                 usuario.setTelefoneContato(editTelefoneDeContato.getText().toString());
                 Toast.makeText(MainActivity.this, "Dados Salvos", Toast.LENGTH_SHORT).show();
+
+                controller.salvar(usuario);
             }
         });
         btnFinalizar.setOnClickListener(new View.OnClickListener() {
