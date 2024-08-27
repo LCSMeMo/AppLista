@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     EditText editPrimeiroNome, editSobrenome, editNomeDoCurso, editTelefoneDeContato;
     Button btnSalvar, btnLimpar, btnFinalizar;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,40 +43,36 @@ public class MainActivity extends AppCompatActivity {
         btnSalvar = findViewById(R.id.btnSalvar);
         btnFinalizar = findViewById(R.id.btnFinalizar);
 
-    btnSalvar.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            usuario.setPrimeiroNome(editPrimeiroNome.getText().toString());
-            usuario.setSobreNome(editSobrenome.getText().toString());
-            usuario.setCursoDesejado(editNomeDoCurso.getText().toString());
-            usuario.setTelefoneContato(editTelefoneDeContato.getText().toString());
-            Toast.makeText(MainActivity.this, "Dados Salvos"+usuario.toString(), Toast.LENGTH_SHORT).show();
-        }
-    });
-    btnFinalizar.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            Toast.makeText(MainActivity.this, "Finalizando", Toast.LENGTH_SHORT).show();
-            finish();
-        }
-    });
-    btnLimpar.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            editPrimeiroNome.setText("");
-            editSobrenome.setText("");
-            editNomeDoCurso.setText("");
-            editTelefoneDeContato.setText("");
-            Toast.makeText(MainActivity.this, "Limpando", Toast.LENGTH_SHORT).show();
-        }
-    }); // Não apaga os dados, apenas Limpa da tela
+        btnSalvar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                usuario.setPrimeiroNome(editPrimeiroNome.getText().toString());
+                usuario.setSobreNome(editSobrenome.getText().toString());
+                usuario.setCursoDesejado(editNomeDoCurso.getText().toString());
+                usuario.setTelefoneContato(editTelefoneDeContato.getText().toString());
+                Toast.makeText(MainActivity.this, "Dados Salvos", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnFinalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "Finalizando", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+        btnLimpar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editPrimeiroNome.setText("");
+                editSobrenome.setText("");
+                editNomeDoCurso.setText("");
+                editTelefoneDeContato.setText("");
+                Toast.makeText(MainActivity.this, "Limpando", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
-
-
-
-        Log.i("POO ANDROID",usuario.toString());
-
+        Log.i("POO ANDROID", usuario.toString());
 
 
     }
